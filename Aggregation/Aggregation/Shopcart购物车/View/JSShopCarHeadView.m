@@ -19,19 +19,19 @@
 {
     self = [super initWithReuseIdentifier:reuseIdentifier];
     if (self) {
-        
-        self.contentView.backgroundColor = [UIColor clearColor];
+        self.backgroundColor = [UIColor whiteColor];
+//        self.contentView.backgroundColor = [UIColor whiteColor];
         self.contentView.layer.shadowColor = [UIColor lightGrayColor].CGColor;
-        self.contentView.layer.shadowOffset = CGSizeMake(-3, -9.5);
-        self.contentView.layer.shadowOpacity = 0.2;
-        self.contentView.layer.shadowRadius = 3;
-        
-        
-        UIView *view2 = [[UIView alloc] initWithFrame:CGRectMake(13,0,ScreenWidth-12,50)];
-        [view2 setFrame:CGRectMake(0, 0, ScreenWidth-24, 40)];
+//        self.contentView.layer.shadowOffset = CGSizeMake(-3, -9.5);
+//        self.contentView.layer.shadowOpacity = 0.2;
+//        self.contentView.layer.shadowRadius = 3;
+//
+//
+        UIView *view2 = [[UIView alloc] init];
+        [view2 setFrame:CGRectMake(0, -3.5, ScreenWidth-24, 53.5)];
         view2.backgroundColor = [UIColor whiteColor];
         [self.contentView addSubview:view2];
-        
+
         //设置切哪个直角
         //    UIRectCornerTopLeft     = 1 << 0,  左上角
         //    UIRectCornerTopRight    = 1 << 1,  右上角
@@ -39,14 +39,14 @@
         //    UIRectCornerBottomRight = 1 << 3,  右下角
         //    UIRectCornerAllCorners  = ~0UL     全部角
         //得到view的遮罩路径
-        UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:view2.bounds byRoundingCorners:UIRectCornerTopLeft | UIRectCornerTopRight cornerRadii:CGSizeMake(8,8)];
+        UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:view2.bounds byRoundingCorners:UIRectCornerTopLeft | UIRectCornerTopRight cornerRadii:CGSizeMake(10,10)];
         //创建 layer
         CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
         maskLayer.frame = view2.bounds;
         //赋值
         maskLayer.path = maskPath.CGPath;
         view2.layer.mask = maskLayer;
-        
+//
        
         [self setupLayout];
     }
@@ -59,7 +59,7 @@
     
     [self.selButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.contentView);
-        make.left.equalTo(self.contentView).offset(0*AdapterScal);
+        make.left.equalTo(self.contentView).offset(12*AdapterScal);
         make.size.mas_equalTo(CGSizeMake(20, 20));
     }];
     

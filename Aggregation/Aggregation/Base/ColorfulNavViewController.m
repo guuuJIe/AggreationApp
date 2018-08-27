@@ -36,14 +36,12 @@
     self.navigationItem.backBarButtonItem = nil;
     self.navigationController.navigationBar.translucent = YES;//透明
     self.navigationController.navigationBar.barStyle = UIBarStyleDefault;
-    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    [self.navigationController.navigationBar setShadowImage:[[UIImage alloc]init]];
+    self.navigationController.view.backgroundColor = [UIColor whiteColor];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage createImageWithColor:[UIColor clearColor]] forBarMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.titleTextAttributes=
     @{NSForegroundColorAttributeName:[UIColor clearColor],
       NSFontAttributeName:[UIFont systemFontOfSize:16]};
-    [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
-    [self.navigationItem.leftBarButtonItem setTintColor:UIColorfff];
-    self.navigationController.view.backgroundColor = [UIColor whiteColor];
-//    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"bgview"] forBarMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.tintColor = [UIColor blackColor];
     if (self.navigationController.childViewControllers.count == 1 ){
         self.tabBarController.tabBar.hidden = NO;
@@ -65,12 +63,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
     self.view.backgroundColor = UIColorfff;
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     self.navigationController.navigationBar.barStyle = UIBarStyleDefault;//状态栏黑色
-    [self.navigationController.navigationBar  setTranslucent:YES];
-    [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
-   [self.navigationItem.leftBarButtonItem setTintColor:UIColorfff];
+    [self.navigationController.navigationBar  setTranslucent:true];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage createImageWithColor:UIColorfff] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setShadowImage:[[UIImage alloc]init]];
+    
+    self.navigationController.navigationBar.tintColor = [UIColor blackColor];
     self.navigationController.navigationBar.titleTextAttributes=
     @{NSForegroundColorAttributeName:[UIColor clearColor],
       NSFontAttributeName:[UIFont systemFontOfSize:16]};

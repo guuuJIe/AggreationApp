@@ -33,8 +33,8 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        self.backgroundColor = [UIColor clearColor];
-        self.contentView.backgroundColor = [UIColor clearColor];
+        self.backgroundColor = [UIColor whiteColor];
+       
         [self InsertSubiews];
     }
     
@@ -47,10 +47,11 @@
 {
     [self.contentView addSubview:self.listTableView];
     [self.listTableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(self.contentView).offset(12);
+        make.top.mas_equalTo(self.contentView).offset(15*AdapterScal);
         make.left.mas_equalTo(self.contentView).offset(12);
         make.right.mas_equalTo(self.contentView).offset(-12);
-        make.bottom.mas_equalTo(self.contentView);
+        make.bottom.mas_equalTo(self.contentView).offset(0*AdapterScal);
+//        make.edges.mas_equalTo(self.contentView);
     }];
     [self.listTableView layoutIfNeeded];
     [self.listTableView setCornerRadius:8 withShadow:YES withOpacity:0.6];
@@ -93,14 +94,14 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    UIView *view = [UIView new];
-    view.backgroundColor = [UIColor clearColor];
-    return view;
+    JSShopCarHeadView *headview = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"JSShopCarHeadView"];
+    
+    return headview;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 10.0f;
+    return 47.0f;
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
@@ -138,69 +139,69 @@
     
 }
 
-- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    CGFloat cornerRadius = 8.f;
-    cell.backgroundColor = UIColor.clearColor;
-    
-    CAShapeLayer *layer = [[CAShapeLayer alloc] init];
-    CAShapeLayer *backgroundLayer = [[CAShapeLayer alloc] init];
-    CGMutablePathRef pathRef = CGPathCreateMutable();
-    CGRect bounds = cell.bounds;
-    
-    NSInteger numberOfRows = 0;
-   
-    numberOfRows = cell.tag - 100;
-
-    
-    BOOL needSeparator = NO;
-    
-    if (indexPath.row == 0 && numberOfRows == 1) {
-        CGPathAddRoundedRect(pathRef, nil, bounds, cornerRadius, cornerRadius);
-    }else if (indexPath.row == 0) {
-        // 初始起点为cell的左下角坐标
-        CGPathMoveToPoint(pathRef, nil, CGRectGetMinX(bounds), CGRectGetMaxY(bounds));
-        CGPathAddArcToPoint(pathRef, nil, CGRectGetMinX(bounds), CGRectGetMinY(bounds), CGRectGetMidX(bounds), CGRectGetMinY(bounds), cornerRadius);
-        CGPathAddArcToPoint(pathRef, nil, CGRectGetMaxX(bounds), CGRectGetMinY(bounds), CGRectGetMaxX(bounds), CGRectGetMidY(bounds), cornerRadius);
-        CGPathAddLineToPoint(pathRef, nil, CGRectGetMaxX(bounds), CGRectGetMaxY(bounds));
-        
-        needSeparator = YES;
-        
-    } else if (indexPath.row == numberOfRows -1) {
-        // 初始起点为cell的左上角坐标
-        CGPathMoveToPoint(pathRef, nil, CGRectGetMinX(bounds), CGRectGetMinY(bounds));
-        CGPathAddArcToPoint(pathRef, nil, CGRectGetMinX(bounds), CGRectGetMaxY(bounds), CGRectGetMidX(bounds), CGRectGetMaxY(bounds), cornerRadius);
-        CGPathAddArcToPoint(pathRef, nil, CGRectGetMaxX(bounds), CGRectGetMaxY(bounds), CGRectGetMaxX(bounds), CGRectGetMidY(bounds), cornerRadius);
-        CGPathAddLineToPoint(pathRef, nil, CGRectGetMaxX(bounds), CGRectGetMinY(bounds));
-    } else {
-        CGPathAddRect(pathRef, nil, bounds);
-        needSeparator = YES;
-    }
-    
-    layer.path = pathRef;
-    backgroundLayer.path = pathRef;
-    CFRelease(pathRef);
-    layer.fillColor = [UIColor whiteColor].CGColor;
-    
-    //    if (self.showSeparator && needSeparator) {
-    //        CALayer *lineLayer = [[CALayer alloc] init];
-    //        CGFloat lineHeight = (1.f / [UIScreen mainScreen].scale);
-    //        lineLayer.frame = CGRectMake(self.separatorInset.left, bounds.size.height - lineHeight, bounds.size.width - (self.separatorInset.left + self.separatorInset.right), lineHeight);
-    //        lineLayer.backgroundColor = self.tableView.separatorColor.CGColor;
-    //        [layer addSublayer:lineLayer];
-    //    }
-    
-    UIView *roundView = [[UIView alloc] initWithFrame:bounds];
-    [roundView.layer insertSublayer:layer atIndex:0];
-    roundView.backgroundColor = UIColor.clearColor;
-    cell.backgroundView = roundView;
-    
-    UIView *selectedBackgroundView = [[UIView alloc] initWithFrame:cell.bounds];
-    backgroundLayer.fillColor = [UIColor groupTableViewBackgroundColor].CGColor;
-    [selectedBackgroundView.layer insertSublayer:backgroundLayer below:cell.layer];
-    selectedBackgroundView.backgroundColor = UIColor.clearColor;
-    cell.selectedBackgroundView = selectedBackgroundView;
-}
+//- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+//    
+//    CGFloat cornerRadius = 8.f;
+//    cell.backgroundColor = UIColor.clearColor;
+//    
+//    CAShapeLayer *layer = [[CAShapeLayer alloc] init];
+//    CAShapeLayer *backgroundLayer = [[CAShapeLayer alloc] init];
+//    CGMutablePathRef pathRef = CGPathCreateMutable();
+//    CGRect bounds = cell.bounds;
+//    
+//    NSInteger numberOfRows = 0;
+//   
+//    numberOfRows = cell.tag - 100;
+//
+//    
+//    BOOL needSeparator = NO;
+//    
+//    if (indexPath.row == 0 && numberOfRows == 1) {
+//        CGPathAddRoundedRect(pathRef, nil, bounds, cornerRadius, cornerRadius);
+//    }else if (indexPath.row == 0) {
+//        // 初始起点为cell的左下角坐标
+//        CGPathMoveToPoint(pathRef, nil, CGRectGetMinX(bounds), CGRectGetMaxY(bounds));
+//        CGPathAddArcToPoint(pathRef, nil, CGRectGetMinX(bounds), CGRectGetMinY(bounds), CGRectGetMidX(bounds), CGRectGetMinY(bounds), cornerRadius);
+//        CGPathAddArcToPoint(pathRef, nil, CGRectGetMaxX(bounds), CGRectGetMinY(bounds), CGRectGetMaxX(bounds), CGRectGetMidY(bounds), cornerRadius);
+//        CGPathAddLineToPoint(pathRef, nil, CGRectGetMaxX(bounds), CGRectGetMaxY(bounds));
+//        
+//        needSeparator = YES;
+//        
+//    } else if (indexPath.row == numberOfRows -1) {
+//        // 初始起点为cell的左上角坐标
+//        CGPathMoveToPoint(pathRef, nil, CGRectGetMinX(bounds), CGRectGetMinY(bounds));
+//        CGPathAddArcToPoint(pathRef, nil, CGRectGetMinX(bounds), CGRectGetMaxY(bounds), CGRectGetMidX(bounds), CGRectGetMaxY(bounds), cornerRadius);
+//        CGPathAddArcToPoint(pathRef, nil, CGRectGetMaxX(bounds), CGRectGetMaxY(bounds), CGRectGetMaxX(bounds), CGRectGetMidY(bounds), cornerRadius);
+//        CGPathAddLineToPoint(pathRef, nil, CGRectGetMaxX(bounds), CGRectGetMinY(bounds));
+//    } else {
+//        CGPathAddRect(pathRef, nil, bounds);
+//        needSeparator = YES;
+//    }
+//    
+//    layer.path = pathRef;
+//    backgroundLayer.path = pathRef;
+//    CFRelease(pathRef);
+//    layer.fillColor = [UIColor whiteColor].CGColor;
+//    
+//    //    if (self.showSeparator && needSeparator) {
+//    //        CALayer *lineLayer = [[CALayer alloc] init];
+//    //        CGFloat lineHeight = (1.f / [UIScreen mainScreen].scale);
+//    //        lineLayer.frame = CGRectMake(self.separatorInset.left, bounds.size.height - lineHeight, bounds.size.width - (self.separatorInset.left + self.separatorInset.right), lineHeight);
+//    //        lineLayer.backgroundColor = self.tableView.separatorColor.CGColor;
+//    //        [layer addSublayer:lineLayer];
+//    //    }
+//    
+//    UIView *roundView = [[UIView alloc] initWithFrame:bounds];
+//    [roundView.layer insertSublayer:layer atIndex:0];
+//    roundView.backgroundColor = UIColor.clearColor;
+//    cell.backgroundView = roundView;
+//    
+//    UIView *selectedBackgroundView = [[UIView alloc] initWithFrame:cell.bounds];
+//    backgroundLayer.fillColor = [UIColor groupTableViewBackgroundColor].CGColor;
+//    [selectedBackgroundView.layer insertSublayer:backgroundLayer below:cell.layer];
+//    selectedBackgroundView.backgroundColor = UIColor.clearColor;
+//    cell.selectedBackgroundView = selectedBackgroundView;
+//}
 
 
 
@@ -209,15 +210,18 @@
 {
     if (!_listTableView) {
         _listTableView = [[UITableView alloc] initWithFrame:CGRectZero style:0];
-        _listTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+       
         _listTableView.tableFooterView = [UIView new];
         _listTableView.delegate = self;
         _listTableView.dataSource = self;
-        _listTableView.tableHeaderView = [UIView new];
-        _listTableView.estimatedRowHeight = 40;
-        _listTableView.rowHeight = UITableViewAutomaticDimension;
+//        _listTableView.tableHeaderView = [UIView new];
+//        _listTableView.estimatedRowHeight = 40;
+        _listTableView.rowHeight = 85*AdapterScal;
+
         _listTableView.backgroundColor = [UIColor whiteColor];
         [_listTableView registerClass:[JSShopCarDataTableViewCell class] forCellReuseIdentifier:@"JSShopCarDataTableViewCell"];
+        [_listTableView registerClass:[JSShopCarHeadView class] forHeaderFooterViewReuseIdentifier:@"JSShopCarHeadView"];
+         _listTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _listTableView.showsVerticalScrollIndicator = NO;
         _listTableView.bounces = NO;
         [self.contentView addSubview:_listTableView];;

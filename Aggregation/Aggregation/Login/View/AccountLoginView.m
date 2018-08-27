@@ -9,6 +9,9 @@
 #import "AccountLoginView.h"
 #import "JTextField.h"
 @interface AccountLoginView()<UITextFieldDelegate>
+{
+    BOOL show;
+}
 @property (nonatomic , strong) JTextField  *nameText;
 @property (nonatomic , strong) JTextField  *passwordText;
 @end
@@ -50,7 +53,6 @@
         make.left.right.equalTo(self.nameText);
         make.top.equalTo(self.nameText.mas_bottom).offset(10*AdapterScal);
         make.height.mas_equalTo(JLineHeight);
-//        make.bottom.equalTo(self);
     }];
     
     UILabel *pwdLbl = [UILabel new];
@@ -68,8 +70,8 @@
     [button setTitle:@"显示" forState:0];
     [button setTitleColor:UIColor333 forState:0];
     [button.titleLabel setFont:UIFont13];
-    button.tag = 100;
-    [button addTarget:self action:@selector(clickAction:) forControlEvents:UIControlEventTouchUpInside];
+    [button setTitle:@"隐藏" forState:UIControlStateSelected];
+    [button addTarget:self action:@selector(controlPwdShow:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:button];
     [button mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self.nameText);
@@ -134,10 +136,21 @@
     }];
 }
 
+- (void)controlPwdShow:(UIButton*)button
+{
+    button.selected = !button.selected;
+    show = !show;
+    if (show) {
+        self.passwordText.secureTextEntry = NO;
+    }else{
+        self.passwordText.secureTextEntry = YES;
+    }
+}
+
 - (void)clickAction:(UIButton *)button
 {
     if (self.clickBlock) {
-        self.clickBlock(button.tag);
+        self.clickBlock(button.tag,self.nameText.text,self.passwordText.text);
     }
 }
 
@@ -171,6 +184,7 @@
         _passwordText.jing_placeholderFont = UIFont14;
         _passwordText.font = UIFont14;
         _passwordText.returnKeyType = UIReturnKeyDone;
+        _passwordText.secureTextEntry = YES;
         _passwordText.delegate = self;
         [self addSubview:self.passwordText];
     }

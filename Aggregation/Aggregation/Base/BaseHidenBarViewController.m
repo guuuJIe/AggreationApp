@@ -35,7 +35,7 @@
     self.navigationItem.backBarButtonItem = nil;
     self.navigationController.navigationBar.translucent = NO;
     self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
-    self.navigationController.navigationBar.shadowImage = [UIImage new];
+//    self.navigationController.navigationBar.shadowImage = [UIImage new];
     [self.navigationController.navigationBar setBackgroundImage:[UIImage createImageWithColor:UIColorfff] forBarMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.tintColor = [UIColor clearColor];
     self.navigationController.navigationBar.titleTextAttributes=
@@ -65,8 +65,8 @@
     // 设置navbar
     self.navigationItem.backBarButtonItem = nil;
     self.navigationController.navigationBar.translucent = NO;
-    self.navigationController.navigationBar.shadowImage = [UIImage new];
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage createImageWithColor:[UIColor whiteColor]] forBarMetrics:UIBarMetricsDefault];
+//    self.navigationController.navigationBar.shadowImage = [UIImage new];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage createImageWithColor:UIColorfff] forBarMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.tintColor = [UIColor clearColor];
     self.navigationController.navigationBar.titleTextAttributes=
     @{NSForegroundColorAttributeName:UIColor1919,

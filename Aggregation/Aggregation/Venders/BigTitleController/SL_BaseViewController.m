@@ -66,7 +66,7 @@
     [self.view addSubview:_navigationBar];
     
     self.sl_scrollBackgroundContentSize=CGSizeMake(self.view.width, self.view.height+self.navigationBar.height-self.navigationBar.btnBack.bottom-(IS_IPhoneX?ScreenStatusBottom-10:0));
-
+//    self.sl_scrollBackgroundContentSize = CGSizeMake(ScreenWidth, ScreenHeigth);
     _scrollCount=0;
     
     [[(SLBackGroundView*)self.view bgScroll].panGestureRecognizer addTarget:self action:@selector(scrollPanOptim:)];

@@ -45,6 +45,10 @@
     
 }
 
+- (void)viewDidDisappear:(BOOL)animated{
+//    [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc]init] forBarMetrics:UIBarMetricsDefault];
+}
+
 
 - (void)setNav
 {

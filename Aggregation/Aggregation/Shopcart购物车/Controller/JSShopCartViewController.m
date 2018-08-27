@@ -33,7 +33,7 @@
                    @[@""],
                    @[@"",@""],
                    @[@"",@"",@""],
-                   @[@"",@"",@"",@""],
+//                   @[@"",@"",@"",@""],
                    ];
     // Do any additional setup after loading the view.
 
@@ -55,6 +55,8 @@
         make.left.right.equalTo(self.view);
         make.bottom.equalTo(self.view).offset(-TabBarHeight);
     }];
+    
+    AdjustsScrollViewInsetNever(self, self.collectionView);
 }
 
 - (void)setupLayout2
@@ -95,19 +97,26 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
 {
-    //330是无数据的高度
-    NSMutableArray *dataArr = [NSMutableArray arrayWithCapacity:0];//记录全部个数
-    for (int i  = 0; i<self.dataArray.count; i++) {
-        NSArray *datas = self.dataArray[i];
-        for (int j = 0; j<datas.count; j++) {
-            [dataArr addObject:datas[j]];
+    if (self.dataArray.count>0) {
+        //330是无数据的高度
+        NSMutableArray *dataArr = [NSMutableArray arrayWithCapacity:0];//记录全部个数
+        for (int i  = 0; i<self.dataArray.count; i++) {
+            NSArray *datas = self.dataArray[i];
+            for (int j = 0; j<datas.count; j++) {
+                [dataArr addObject:datas[j]];
+            }
         }
+        
+        JLog(@"%lu",(unsigned long)dataArr.count);
+        //间距                   //总个数的高度
+        //    return CGSizeMake(ScreenWidth, 330+15*self.dataArray.count+dataArr.count*90*AdapterScal);
+        return CGSizeMake(ScreenWidth, 320*AdapterScal+dataArr.count*85*AdapterScal+15*self.dataArray.count*AdapterScal); //10表示headview
+    }else{
+        //330是无数据的高度
+      
+        return CGSizeMake(ScreenWidth, 330);
     }
-    
-    JLog(@"%lu",(unsigned long)dataArr.count);
-                                        //间距                   //总个数的高度
-    return CGSizeMake(ScreenWidth, 330+20*self.dataArray.count+dataArr.count*100);
-    
+   
 }
 
 -(UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{

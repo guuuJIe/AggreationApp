@@ -23,5 +23,6 @@
 #import "JGIifFooter.h"
 #import "JSCUtil.h"
 #import "UIView+ViewExtension.h"
-
+#import "JSHttpClient.h"
+#import "UserInfo.h"
 #endif /* ImportHeader_h */

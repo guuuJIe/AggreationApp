@@ -22,6 +22,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        self.backgroundColor = [UIColor whiteColor];
 //        _dataArray = @[
 //                       @[@""],
 //                       @[@"",@""],
@@ -37,19 +38,20 @@
 {
     
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self).offset(10+StauesBarHeight);
+        make.top.equalTo(self).offset(StauesBarHeight);
         make.left.equalTo(self).offset(14);
        
     }];
     
     self.listTableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
     self.listTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    //    self.listTableView.estimatedRowHeight = 40;
-    //    self.listTableView.rowHeight = UITableViewAutomaticDimension;
+   
+//        self.listTableView.estimatedRowHeight = 40;
+//        self.listTableView.rowHeight = UITableViewAutomaticDimension;
     // 隐藏UITableViewStyleGrouped上边多余的间隔
     self.listTableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, CGFLOAT_MIN)];
-    self.listTableView.sectionHeaderHeight = 0.1f;
-    self.listTableView.sectionFooterHeight = 12.0f;
+    self.listTableView.sectionHeaderHeight = 0.01f;
+    self.listTableView.sectionFooterHeight = 0.01f;
     self.listTableView.backgroundColor = [UIColor whiteColor];
     self.listTableView.showsVerticalScrollIndicator = NO;
     self.listTableView.delegate = self;
@@ -62,7 +64,7 @@
     [self.listTableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.titleLabel.mas_bottom).offset(10*AdapterScal);
         make.left.right.equalTo(self);
-        make.bottom.equalTo(self).offset(-30);
+        make.bottom.equalTo(self).offset(-30*AdapterScal);
     }];
     
     UILabel *likelabel =[UILabel new];
@@ -126,9 +128,9 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSArray *arr = _dataArray[indexPath.section];
+    NSArray *arr = self.dataArray[indexPath.section];
     JLog(@"%lu",(unsigned long)arr.count);
-    return 50.0f+(arr.count*92*AdapterScal);
+    return arr.count*85*AdapterScal+78*AdapterScal;
     
 }
 

@@ -88,7 +88,7 @@ typedef enum
 #define SafeNavAreaTopHeight (ScreenHeight == 812.0 ? 88 : 64)
 #define BottomAreaHeight (ScreenHeight == 812.0f ? 34 : 0)
 #define StatusBarHeighterThanCommon                (ScreenHeight == 812.0f ? 24 : 0)
-#define TabBarHeight (ScreenHeight == 812.0f ? 63 : 50)
+#define TabBarHeight (ScreenHeight == 812.0f ? 55 : 40)
 #define JAppDelegate (AppDelegate *)[UIApplication sharedApplication].delegate
 #define URL(url) [NSURL URLWithString:url]
 

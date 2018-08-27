@@ -63,6 +63,8 @@
 		0B0D6FCD212D572100906640 /* NSString+width.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B0D6FCC212D572100906640 /* NSString+width.m */; };
 		0B0D6FD1212D593700906640 /* CotentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B0D6FD0212D593700906640 /* CotentView.m */; };
 		0B0D6FD4212D625D00906640 /* JSMineOrdesSectionOneTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B0D6FD3212D625D00906640 /* JSMineOrdesSectionOneTableViewCell.m */; };
+		0B190A262133981E0002FDC1 /* ForgetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B190A252133981E0002FDC1 /* ForgetPasswordViewController.m */; };
+		0B190A292133A47D0002FDC1 /* ResetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B190A282133A47D0002FDC1 /* ResetPasswordViewController.m */; };
 		0B21386F21265A70004AAB96 /* GradientLbl.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B21386E21265A70004AAB96 /* GradientLbl.m */; };
 		0B305DAE212BA62B004E586C /* JSShopCarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B305DAD212BA62B004E586C /* JSShopCarCell.m */; };
 		0B305DB2212BA774004E586C /* UIView+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B305DB1212BA774004E586C /* UIView+Category.m */; };
@@ -128,6 +130,11 @@
 		0BBB91AE212D874B007CFCA5 /* ColorfulNavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BBB91AD212D874B007CFCA5 /* ColorfulNavViewController.m */; };
 		0BBB91B1212D8B65007CFCA5 /* JSMineOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BBB91B0212D8B65007CFCA5 /* JSMineOrderViewController.m */; };
 		0BBB91B4212D8C19007CFCA5 /* NavigationBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BBB91B3212D8C19007CFCA5 /* NavigationBottomView.m */; };
+		0BC5ACA92133E4E7003FC7A5 /* JSAccountManagers.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BC5ACA82133E4E7003FC7A5 /* JSAccountManagers.m */; };
+		0BC5ACAC2133E644003FC7A5 /* JSAccountApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BC5ACAB2133E644003FC7A5 /* JSAccountApi.m */; };
+		0BC5ACB52133ED1E003FC7A5 /* SetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BC5ACB42133ED1E003FC7A5 /* SetPasswordViewController.m */; };
+		0BC5ACB82133F32C003FC7A5 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BC5ACB72133F32C003FC7A5 /* RegisterViewController.m */; };
+		0BC5ACBB2133FA82003FC7A5 /* PerfectInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BC5ACBA2133FA82003FC7A5 /* PerfectInformationViewController.m */; };
 		0BD195F3212CF48600B184CE /* JSConfirmOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BD195F2212CF48600B184CE /* JSConfirmOrderViewController.m */; };
 		0BD195F6212CF5A200B184CE /* JSConfirmOrderHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BD195F5212CF5A200B184CE /* JSConfirmOrderHeadView.m */; };
 		0BD195F9212CF8C000B184CE /* ConfirmOrderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BD195F8212CF8C000B184CE /* ConfirmOrderTableViewCell.m */; };
@@ -292,6 +299,10 @@
 		0B0D6FD0212D593700906640 /* CotentView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CotentView.m; sourceTree = "<group>"; };
 		0B0D6FD2212D625D00906640 /* JSMineOrdesSectionOneTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSMineOrdesSectionOneTableViewCell.h; sourceTree = "<group>"; };
 		0B0D6FD3212D625D00906640 /* JSMineOrdesSectionOneTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSMineOrdesSectionOneTableViewCell.m; sourceTree = "<group>"; };
+		0B190A242133981E0002FDC1 /* ForgetPasswordViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ForgetPasswordViewController.h; sourceTree = "<group>"; };
+		0B190A252133981E0002FDC1 /* ForgetPasswordViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ForgetPasswordViewController.m; sourceTree = "<group>"; };
+		0B190A272133A47D0002FDC1 /* ResetPasswordViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResetPasswordViewController.h; sourceTree = "<group>"; };
+		0B190A282133A47D0002FDC1 /* ResetPasswordViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ResetPasswordViewController.m; sourceTree = "<group>"; };
 		0B21386D21265A70004AAB96 /* GradientLbl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GradientLbl.h; sourceTree = "<group>"; };
 		0B21386E21265A70004AAB96 /* GradientLbl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GradientLbl.m; sourceTree = "<group>"; };
 		0B305DAC212BA62B004E586C /* JSShopCarCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSShopCarCell.h; sourceTree = "<group>"; };
@@ -420,6 +431,16 @@
 		0BBB91B0212D8B65007CFCA5 /* JSMineOrderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSMineOrderViewController.m; sourceTree = "<group>"; };
 		0BBB91B2212D8C19007CFCA5 /* NavigationBottomView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NavigationBottomView.h; sourceTree = "<group>"; };
 		0BBB91B3212D8C19007CFCA5 /* NavigationBottomView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NavigationBottomView.m; sourceTree = "<group>"; };
+		0BC5ACA72133E4E7003FC7A5 /* JSAccountManagers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSAccountManagers.h; sourceTree = "<group>"; };
+		0BC5ACA82133E4E7003FC7A5 /* JSAccountManagers.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSAccountManagers.m; sourceTree = "<group>"; };
+		0BC5ACAA2133E644003FC7A5 /* JSAccountApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSAccountApi.h; sourceTree = "<group>"; };
+		0BC5ACAB2133E644003FC7A5 /* JSAccountApi.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSAccountApi.m; sourceTree = "<group>"; };
+		0BC5ACB32133ED1E003FC7A5 /* SetPasswordViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetPasswordViewController.h; sourceTree = "<group>"; };
+		0BC5ACB42133ED1E003FC7A5 /* SetPasswordViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SetPasswordViewController.m; sourceTree = "<group>"; };
+		0BC5ACB62133F32C003FC7A5 /* RegisterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		0BC5ACB72133F32C003FC7A5 /* RegisterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		0BC5ACB92133FA82003FC7A5 /* PerfectInformationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PerfectInformationViewController.h; sourceTree = "<group>"; };
+		0BC5ACBA2133FA82003FC7A5 /* PerfectInformationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PerfectInformationViewController.m; sourceTree = "<group>"; };
 		0BD195F1212CF48600B184CE /* JSConfirmOrderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSConfirmOrderViewController.h; sourceTree = "<group>"; };
 		0BD195F2212CF48600B184CE /* JSConfirmOrderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSConfirmOrderViewController.m; sourceTree = "<group>"; };
 		0BD195F4212CF5A200B184CE /* JSConfirmOrderHeadView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSConfirmOrderHeadView.h; sourceTree = "<group>"; };
@@ -524,8 +545,8 @@
 		0B0AF253211C1F650040B3A9 /* Aggregation */ = {
 			isa = PBXGroup;
 			children = (
-				0B0AF2D8211C34370040B3A9 /* Main */,
 				0B0AF2C7211C303E0040B3A9 /* NetWorkRequest */,
+				0B0AF2D8211C34370040B3A9 /* Main */,
 				0B0AF2BB211C2FA60040B3A9 /* JUtil */,
 				0B0AF2E2211C376A0040B3A9 /* HomePage首页 */,
 				0B0C86BE212565500036A13F /* GoodsClassification分类 */,
@@ -622,6 +643,16 @@
 				0BA900092126B7A90036B1F4 /* View */,
 				0B0AF29D211C29440040B3A9 /* LoginViewController.h */,
 				0B0AF29E211C29440040B3A9 /* LoginViewController.m */,
+				0B190A242133981E0002FDC1 /* ForgetPasswordViewController.h */,
+				0B190A252133981E0002FDC1 /* ForgetPasswordViewController.m */,
+				0B190A272133A47D0002FDC1 /* ResetPasswordViewController.h */,
+				0B190A282133A47D0002FDC1 /* ResetPasswordViewController.m */,
+				0BC5ACB32133ED1E003FC7A5 /* SetPasswordViewController.h */,
+				0BC5ACB42133ED1E003FC7A5 /* SetPasswordViewController.m */,
+				0BC5ACB62133F32C003FC7A5 /* RegisterViewController.h */,
+				0BC5ACB72133F32C003FC7A5 /* RegisterViewController.m */,
+				0BC5ACB92133FA82003FC7A5 /* PerfectInformationViewController.h */,
+				0BC5ACBA2133FA82003FC7A5 /* PerfectInformationViewController.m */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -706,7 +737,8 @@
 		0B0AF2C7211C303E0040B3A9 /* NetWorkRequest */ = {
 			isa = PBXGroup;
 			children = (
-				0B0AF2D7211C32EF0040B3A9 /* JSCManagers */,
+				0BC5ACA62133E45E003FC7A5 /* Api */,
+				0B0AF2D7211C32EF0040B3A9 /* JSManagers */,
 				0B0AF2C8211C30DF0040B3A9 /* HttpClient */,
 			);
 			path = NetWorkRequest;
@@ -734,11 +766,13 @@
 			path = JSCUtil;
 			sourceTree = "<group>";
 		};
-		0B0AF2D7211C32EF0040B3A9 /* JSCManagers */ = {
+		0B0AF2D7211C32EF0040B3A9 /* JSManagers */ = {
 			isa = PBXGroup;
 			children = (
+				0BC5ACA72133E4E7003FC7A5 /* JSAccountManagers.h */,
+				0BC5ACA82133E4E7003FC7A5 /* JSAccountManagers.m */,
 			);
-			path = JSCManagers;
+			path = JSManagers;
 			sourceTree = "<group>";
 		};
 		0B0AF2D8211C34370040B3A9 /* Main */ = {
@@ -1163,6 +1197,15 @@
 			path = UIViewControllerScroll;
 			sourceTree = "<group>";
 		};
+		0BC5ACA62133E45E003FC7A5 /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				0BC5ACAA2133E644003FC7A5 /* JSAccountApi.h */,
+				0BC5ACAB2133E644003FC7A5 /* JSAccountApi.m */,
+			);
+			path = Api;
+			sourceTree = "<group>";
+		};
 		0BE30B182126649E0055E0B7 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -1486,6 +1529,7 @@
 				0B0C86C321256E960036A13F /* WhiteNavViewController.m in Sources */,
 				0B305DAE212BA62B004E586C /* JSShopCarCell.m in Sources */,
 				0BF58A1A2128197400DB271B /* JSShopCarNavView.m in Sources */,
+				0BC5ACA92133E4E7003FC7A5 /* JSAccountManagers.m in Sources */,
 				0B02B577212E91B000A27479 /* JSCompayDetailViewController.m in Sources */,
 				0B0C86AE212554D00036A13F /* JSHomePageThemeCollectionViewCell.m in Sources */,
 				0BD195F3212CF48600B184CE /* JSConfirmOrderViewController.m in Sources */,
@@ -1497,6 +1541,7 @@
 				0B305DB6212BE10D004E586C /* JSMineOrdersViewController.m in Sources */,
 				0B0AF259211C1F650040B3A9 /* ViewController.m in Sources */,
 				0B0AF2C6211C2FC00040B3A9 /* JMBManager.m in Sources */,
+				0BC5ACB82133F32C003FC7A5 /* RegisterViewController.m in Sources */,
 				0BD195F6212CF5A200B184CE /* JSConfirmOrderHeadView.m in Sources */,
 				0B92FFE5211D854B0027EA0E /* TYCyclePagerView.m in Sources */,
 				0B02B580212E9CEF00A27479 /* AlertPopView.m in Sources */,
@@ -1505,10 +1550,12 @@
 				0BB79317212FDB89002655A3 /* JSWithdrawViewController.m in Sources */,
 				0BD195FF212CFD6B00B184CE /* ConfirmOrderSectionThreeTableViewCell.m in Sources */,
 				0B0D6FBA212D35F500906640 /* SubmitOrderView.m in Sources */,
+				0BC5ACBB2133FA82003FC7A5 /* PerfectInformationViewController.m in Sources */,
 				0B0AF2B3211C297F0040B3A9 /* JButton.m in Sources */,
 				0BA9000F2126CC300036B1F4 /* QuickLoginView.m in Sources */,
 				0BA9FFF62126A1460036B1F4 /* MineConsumptionView.m in Sources */,
 				0B6A71CB212AB3AC005E4524 /* CommsearchBar.m in Sources */,
+				0BC5ACAC2133E644003FC7A5 /* JSAccountApi.m in Sources */,
 				0B0AF2B6211C297F0040B3A9 /* JButtonWithText.m in Sources */,
 				0BE30B23212676F20055E0B7 /* MineInfoSectionOneTableViewCell.m in Sources */,
 				0BB7931D212FE044002655A3 /* JSWithdrawSectionTwoTableViewCell.m in Sources */,
@@ -1533,6 +1580,7 @@
 				0BB79303212FB2E2002655A3 /* JSJoinViewController.m in Sources */,
 				0B0C86B1212558D00036A13F /* ThemeRecommandCollectionViewCell.m in Sources */,
 				0B510482212ECF78003DB71A /* JSMemberCenterSectionTwoTableViewCell.m in Sources */,
+				0B190A262133981E0002FDC1 /* ForgetPasswordViewController.m in Sources */,
 				0B0C86BA212563440036A13F /* HomePageCommpanyRecommendCollectionViewCell.m in Sources */,
 				0BE30B1F2126686B0055E0B7 /* ClassificationCollectionViewCell.m in Sources */,
 				0B5EA6AE212C254B00EEBFAD /* JSGoodsStatusHeadeView.m in Sources */,
@@ -1573,6 +1621,7 @@
 				0BBB91B4212D8C19007CFCA5 /* NavigationBottomView.m in Sources */,
 				0B02B57A212E92ED00A27479 /* JSCompanyDetailHeadView.m in Sources */,
 				0B92FFD7211D7F5E0027EA0E /* JSHomePageSectionTwoCollectionViewCell.m in Sources */,
+				0B190A292133A47D0002FDC1 /* ResetPasswordViewController.m in Sources */,
 				0B0AF29B211C237B0040B3A9 /* UIImage+Category.m in Sources */,
 				0B92FFE6211D854B0027EA0E /* TYCyclePagerViewCell.m in Sources */,
 				0B21386F21265A70004AAB96 /* GradientLbl.m in Sources */,
@@ -1586,6 +1635,7 @@
 				0B0AF264211C1F6A0040B3A9 /* main.m in Sources */,
 				0B0AF2B7211C297F0040B3A9 /* LoginCodeBtn.m in Sources */,
 				0BF58A1D21281EE200DB271B /* ShopcarEmptyCollectionReusableView.m in Sources */,
+				0BC5ACB52133ED1E003FC7A5 /* SetPasswordViewController.m in Sources */,
 				0B0AF2CF211C30DF0040B3A9 /* JSHttpClient.m in Sources */,
 				0B0D6FC7212D454B00906640 /* GuseeYoulikeCollectionViewCell.m in Sources */,
 				0BF58A232128486500DB271B /* JSShopCarHeadView.m in Sources */,

@@ -36,13 +36,16 @@
    [self.navigationController setNavigationBarHidden:NO animated:YES];
     self.view.backgroundColor = UIColorfff;
     // 设置navbar
-    self.navigationItem.backBarButtonItem = nil;
+   [self.navigationItem setHidesBackButton:YES];
     self.navigationController.navigationBar.translucent = YES;//透明
     self.navigationController.navigationBar.barStyle = UIBarStyleDefault;
-//     [self.navigationController.navigationBar setShadowImage:[UIImage createImageWithColor:UIColoreee]];
+    [self.navigationController.navigationBar setShadowImage:[[UIImage alloc]init]];
     self.navigationController.view.backgroundColor = [UIColor whiteColor];
     [self.navigationController.navigationBar setBackgroundImage:[UIImage createImageWithColor:[UIColor clearColor]] forBarMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.tintColor = [UIColor blackColor];
+    self.navigationController.navigationBar.titleTextAttributes=
+    @{NSForegroundColorAttributeName:[UIColor clearColor],
+      NSFontAttributeName:[UIFont systemFontOfSize:16]};
     if (self.navigationController.childViewControllers.count == 1 ){
         self.tabBarController.tabBar.hidden = NO;
     }
@@ -64,16 +67,17 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = UIColorfff;
+    [self.navigationItem setHidesBackButton:YES];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     self.navigationController.navigationBar.barStyle = UIBarStyleDefault;//状态栏黑色
     [self.navigationController.navigationBar  setTranslucent:true];
     [self.navigationController.navigationBar setBackgroundImage:[UIImage createImageWithColor:UIColorfff] forBarMetrics:UIBarMetricsDefault];
-//     [self.navigationController.navigationBar setShadowImage:[UIImage createImageWithColor:UIColoreee]];
+     [self.navigationController.navigationBar setShadowImage:[[UIImage alloc]init]];
 
      self.navigationController.navigationBar.tintColor = [UIColor blackColor];
-//    self.navigationController.navigationBar.titleTextAttributes=
-//    @{NSForegroundColorAttributeName:UIColor000,
-//      NSFontAttributeName:[UIFont systemFontOfSize:16]};
+    self.navigationController.navigationBar.titleTextAttributes=
+    @{NSForegroundColorAttributeName:[UIColor clearColor],
+      NSFontAttributeName:[UIFont systemFontOfSize:16]};
 
     
     UIImage *leftButtonIcon = [UIImage imageNamed:@"Back"];

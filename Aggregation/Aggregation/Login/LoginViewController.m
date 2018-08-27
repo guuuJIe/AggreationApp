@@ -11,12 +11,17 @@
 #import "UnderLineButton.h"
 #import "AccountLoginView.h"
 #import "QuickLoginView.h"
-@interface LoginViewController ()
+#import "JSAccountManagers.h"
+
+@interface LoginViewController ()<UIScrollViewDelegate>
 
 @property (nonatomic , strong) UIImageView  *logoImageView;
 @property (nonatomic , strong) UILabel *titleLabel;
 @property (nonatomic , strong) AccountLoginView *accountView;
 @property (nonatomic , strong) QuickLoginView *quickView;
+@property (nonatomic , strong) UIScrollView *scrollView;
+@property (nonatomic , strong) JSAccountManagers *managers;
+
 @end
 
 @implementation LoginViewController
@@ -34,10 +39,19 @@
 
 - (void)setupLayout
 {
-    [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.view).offset(53*AdapterScal+StauesBarHeight);
-        make.left.equalTo(self.view).offset(20*AdapterScal);
+    
+    [self.scrollView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.view).offset(0);
+        make.left.right.bottom.mas_equalTo(self.view);
     }];
+    
+    [self.scrollView addSubview:self.titleLabel];
+    [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.scrollView).offset(53*AdapterScal+StauesBarHeight);
+        make.left.equalTo(self.scrollView).offset(20*AdapterScal);
+    }];
+    
+    
     UIView *lastView;
     NSArray *arr = @[@"账号登录",@"快捷登录"];
     for (int i = 0; i<arr.count; i++) {
@@ -47,7 +61,7 @@
         [button setBackgroundColor:UIColorfff];
         [button setTitleColor:UIColor000 forState:UIControlStateSelected];
         button.tag = i+200;
-        [self.view addSubview:button];
+        [self.scrollView addSubview:button];
         [button addTarget:self action:@selector(Login:) forControlEvents:UIControlEventTouchUpInside];
         [button mas_makeConstraints:^(MASConstraintMaker *make) {
             if (i == 0) {
@@ -63,11 +77,13 @@
         lastView = button;
     }
     
+    [self.scrollView addSubview:self.accountView];
     [self.accountView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(self.view);
         make.top.equalTo(lastView.mas_bottom).offset(10);
     }];
     
+    [self.scrollView addSubview:self.quickView];
     [self.quickView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(self.view);
         make.top.equalTo(lastView.mas_bottom).offset(10);
@@ -101,19 +117,19 @@
     }
 }
 #pragma mark - Lazy
--(UIImageView *)logoImageView
-{
-    if (!_logoImageView) {
-        _logoImageView = [UIImageView new];
-        _logoImageView.image = [UIImage imageNamed:@"logo"];
-
-        _logoImageView.contentMode = UIViewContentModeCenter;
-        _logoImageView.userInteractionEnabled = YES;
-        [_logoImageView addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(click)]];
-        [self.view addSubview:_logoImageView];
-    }
-    return _logoImageView;
-}
+//-(UIImageView *)logoImageView
+//{
+//    if (!_logoImageView) {
+//        _logoImageView = [UIImageView new];
+//        _logoImageView.image = [UIImage imageNamed:@"logo"];
+//
+//        _logoImageView.contentMode = UIViewContentModeCenter;
+//        _logoImageView.userInteractionEnabled = YES;
+//        [_logoImageView addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(click)]];
+//        [self.view addSubview:_logoImageView];
+//    }
+//    return _logoImageView;
+//}
 
 - (UILabel *)titleLabel
 {
@@ -132,11 +148,36 @@
     if (!_accountView) {
         _accountView = [AccountLoginView new];
         WeakSelf(self);
-        _accountView.clickBlock = ^(NSInteger tag) {
-            AppDelegate *appdelegate = JAppDelegate;
-            [weakself presentViewController:appdelegate.tabBarConfig.tabBarController animated:true completion:nil];
+        _accountView.clickBlock = ^(NSInteger tag, NSString *tel, NSString *pwd) {
+            
+            switch (tag) {
+              
+                case 101:
+                {
+                    weakself.managers.userName = tel;
+                    weakself.managers.passWord = pwd;
+                    [weakself.managers responderOfSignUpWhileFinished:^(NSError *error, MessageBody *result) {
+                        AppDelegate *appdelegate = JAppDelegate;
+                        [weakself presentViewController:appdelegate.tabBarConfig.tabBarController animated:true completion:nil];
+                    }];
+                   
+                }
+                    break;
+                case 102:
+                {
+                    [weakself.navigationController pushViewController:[NSClassFromString(@"RegisterViewController") new] animated:YES];
+                }
+                    break;
+                case 103:
+                {
+                    [weakself.navigationController pushViewController:[NSClassFromString(@"ForgetPasswordViewController") new] animated:YES];
+                }
+                    break;
+                default:
+                    
+                    break;
+            }
         };
-        [self.view addSubview:_accountView];
     }
     return _accountView;
 }
@@ -146,10 +187,31 @@
     if (!_quickView) {
         _quickView = [QuickLoginView new];
         _quickView.hidden = YES;
-        [self.view addSubview:_quickView];
+//        [self.view addSubview:_quickView];
     }
     return _quickView;
 }
 
+- (UIScrollView *)scrollView
+{
+    if (!_scrollView) {
+        _scrollView = [[UIScrollView alloc] init];
+        _scrollView.delegate = self;
+        _scrollView.alwaysBounceVertical = YES;
+        _scrollView.showsVerticalScrollIndicator = NO;
+        [_scrollView setContentSize:CGSizeMake(ScreenWidth, ScreenHeight
+                                               )];
+        [self.view addSubview:_scrollView];
+    }
+    return _scrollView;
+}
+
+- (JSAccountManagers *)managers
+{
+    if (!_managers) {
+        _managers = [[JSAccountManagers alloc] init];
+    }
+    return _managers;
+}
 
 @end

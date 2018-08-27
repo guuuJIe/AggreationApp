@@ -9,5 +9,6 @@
 #ifndef Interface_h
 #define Interface_h
 
+#define appLogin @"/app/login"//登录
 
 #endif /* Interface_h */

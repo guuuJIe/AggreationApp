@@ -39,7 +39,7 @@
     if (self) {
         self.contentView.backgroundColor = [UIColor clearColor];
         self.selectionStyle = UITableViewCellSelectionStyleNone;
-
+        self.backgroundColor = [UIColor clearColor];
         [self setupLayout];
     }
     return self;
@@ -88,14 +88,14 @@
 
 - (void)setupLayout
 {
-    UIView *lineView = [UIView new];
-    lineView.backgroundColor = UIColorf4f4;
-    [self.bgview addSubview:lineView];
-    [lineView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.left.bottom.equalTo(self.bgview);
-        make.width.mas_equalTo(JLineHeight);
-    }];
-////    bgView.layer.cornerRadius = 5;
+//    UIView *lineView = [UIView new];
+//    lineView.backgroundColor = UIColorf4f4;
+//    [self.bgview addSubview:lineView];
+//    [lineView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.left.bottom.equalTo(self.bgview);
+//        make.width.mas_equalTo(JLineHeight);
+//    }];
+//    bgView.layer.cornerRadius = 5;
 //    bgView.layer.masksToBounds = YES;
     
 //    bgView.layer.shadowColor = [UIColor lightGrayColor].CGColor;
@@ -103,47 +103,47 @@
 //    bgView.layer.shadowOpacity = 0.5;
 //    bgView.layer.shadowRadius = 4;
     
-    [self.contentView addSubview:self.bgview];
-    [self.bgview mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.contentView).offset(0);
-        make.right.equalTo(self.contentView).offset(0);
-        make.top.equalTo(self.contentView);
-    }];
+//    [self.contentView addSubview:self.bgview];
+//    [self.bgview mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.equalTo(self.contentView).offset(0);
+//        make.right.equalTo(self.contentView).offset(0);
+//        make.top.equalTo(self.contentView);
+//    }];
     
-    [self.bgview addSubview:self.selButton];
+    [self.contentView addSubview:self.selButton];
     [self.selButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.equalTo(self.bgview);
-        make.left.equalTo(self.bgview).offset(12*AdapterScal);
+        make.centerY.equalTo(self.contentView);
+        make.left.equalTo(self.contentView).offset(12*AdapterScal);
         make.size.mas_equalTo(CGSizeMake(18, 18));
     }];
     
-    [self.bgview addSubview:self.goodImage];
+    [self.contentView addSubview:self.goodImage];
     [self.goodImage mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.equalTo(self.bgview);
+        make.centerY.equalTo(self.contentView);
         make.left.equalTo(self.selButton.mas_right).offset(8);
         make.size.mas_equalTo(CGSizeMake(80*AdapterScal, 80*AdapterScal));
-        make.bottom.equalTo(self.bgview).offset(-8*AdapterScal);
+        make.bottom.equalTo(self.contentView).offset(-5*AdapterScal);
     }];
     
-    [self.bgview mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(self.contentView).offset(0*AdapterScal);
-    }];
+//    [self.contentView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.bottom.equalTo(self.contentView).offset(0*AdapterScal);
+//    }];
     
     
-    [self.bgview addSubview:self.namelabel];
+    [self.contentView addSubview:self.namelabel];
     [self.namelabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.goodImage);
         make.left.equalTo(self.goodImage.mas_right).offset(10*AdapterScal);
-        make.right.equalTo(self.bgview).offset(-5*AdapterScal);
+        make.right.equalTo(self.contentView).offset(-5*AdapterScal);
     }];
     
-    [self.bgview addSubview:self.capcitylabel];
+    [self.contentView addSubview:self.capcitylabel];
     [self.capcitylabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.namelabel.mas_bottom).offset(6*AdapterScal);
         make.left.equalTo(self.namelabel);
     }];
     
-    [self.bgview addSubview:self.priceLabel];
+    [self.contentView addSubview:self.priceLabel];
     [self.priceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.equalTo(self.goodImage);
         make.left.equalTo(self.namelabel);
@@ -151,9 +151,9 @@
     
     UIView *numView = [[UIView alloc] init];
     numView.backgroundColor = UIColorfff;
-    [self.bgview addSubview:numView];
+    [self.contentView addSubview:numView];
     [numView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(self.bgview.mas_right).offset(-10*AdapterScal);
+        make.right.equalTo(self.contentView.mas_right).offset(-10*AdapterScal);
         make.centerY.equalTo(self.priceLabel);
         make.size.mas_equalTo(CGSizeMake(100, 22));
     }];

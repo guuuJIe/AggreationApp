@@ -36,12 +36,24 @@
 //        make.size.mas_equalTo(CGSizeMake(35, 35));
     }];
     
+    UIView *line = [[UIView alloc] init];
+    line.backgroundColor = UIColore5e5;
+    [self addSubview:line];
+    [line mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.shop).offset(5);
+        make.bottom.equalTo(self.shop);
+        make.left.mas_equalTo(self.shop.mas_right).offset(1);
+        make.width.mas_equalTo(JLineHeight);
+    }];
+    
     [self.car mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.shop.mas_right);
+        make.left.equalTo(line.mas_right).offset(1);
         make.top.equalTo(self);
         make.width.mas_equalTo(ScreenWidth/4);
          make.height.mas_equalTo(50*AdapterScal);
     }];
+    
+    
     
     [self.add mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.car.mas_right);

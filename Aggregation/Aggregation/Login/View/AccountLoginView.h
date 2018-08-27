@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface AccountLoginView : UIView
-@property (nonatomic,copy) void(^clickBlock)(NSInteger tag);
+@property (nonatomic,copy) void(^clickBlock)(NSInteger tag,NSString *tel,NSString *pwd);
 @end
